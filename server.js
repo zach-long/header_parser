@@ -11,8 +11,11 @@ var port = process.env.PORT || 3000
 var message = 'Server listening on port ' + port + '. . .'
 
 // set default root response
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs')
+
 app.get('/', (req, res) => {
-    res.send("Change path to '/whoami' to see parsed user data.")
+    res.render('index.html')
 })
 
 // return header
