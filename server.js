@@ -12,7 +12,7 @@ var message = 'Server listening on port ' + port + '. . .'
 
 // set default root response
 app.get('/', (req, res) => {
-    res.send("I am root")
+    res.send("Change path to '/whoami' to see parsed user data.")
 })
 
 // return header
