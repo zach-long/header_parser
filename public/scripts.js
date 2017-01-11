@@ -15,7 +15,7 @@ function httpRequest() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
-      var response = JSON.stringify(xhr.responseText, undefined, 2);
+      var response = JSON.stringify(xhr.responseText, undefined, '\t');
       dataAnchor.innerHTML = response;
     }
   };
