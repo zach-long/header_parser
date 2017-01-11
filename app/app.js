@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 router.get('/whoami', (req, res) => {
     // get data for response
     let userip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
-    
+
     let userlangTemp = req.acceptsLanguages()
     let userlangArr = []
     for (var i = 0; i < userlangTemp.length; i++) {
@@ -27,8 +27,8 @@ router.get('/whoami', (req, res) => {
         'Browser Language' : userlang,
         'OS' : useragent
     }
-
-    res.send(parsed)
+    let formatted = JSON.stringify(parsed, undefined, 2)
+    res.send(formatted)
 })
 
 module.exports = router
