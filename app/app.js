@@ -22,11 +22,10 @@ router.get('/whoami', (req, res) => {
     let useragent = useragentTemp.match(/\((.*?)\)/)[1]
 
     // create object to send
-    let parsed = {
-        'IP Address' : userip,
-        'Browser Language' : userlang,
-        'OS' : useragent
-    }
+    let parsed = {}
+    parsed['IP Address'] = userip
+    parsed['Browser Language'] = userlang
+    parsed['OS'] = useragent
 
     res.send(parsed)
 })
