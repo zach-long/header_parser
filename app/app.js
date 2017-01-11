@@ -27,8 +27,8 @@ router.get('/whoami', (req, res) => {
         'Browser Language' : userlang,
         'OS' : useragent
     }
-    let formatted = JSON.stringify(parsed, undefined, 2)
-    res.send(formatted)
+
+    res.send(parsed)
 })
 
 module.exports = router
