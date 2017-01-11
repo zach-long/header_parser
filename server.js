@@ -1,25 +1,20 @@
 'use strict'
 
 // imports
+const path = require('path')
 const express = require('express'),
       app = express()
 
-const parser = require('./parser.js')
+// require external js
+const parser = require('./app/app.js')
 
-// declare server variables
-var port = process.env.PORT || 3000
-var message = 'Server listening on port ' + port + '. . .'
+// set public directory
+app.use(express.static(path.join(__dirname, 'public')))
 
-// set default root response
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs')
-
-app.get('/', (req, res) => {
-    res.render('index.html')
-})
-
-// return header
-parser(app)
+// use external js
+app.use('/', parser)
 
 // start server
+var port = process.env.PORT || 3000
+var message = 'Server listening on port ' + port + '. . .'
 app.listen(port, ()=>{ console.log(message) })
